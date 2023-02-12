@@ -3,7 +3,7 @@
 The 'place' module
 Defines the class 'Place'
 """
-from models.base_module import BaseModel
+from models.base_model import BaseModel
 
 
 class Place(BaseModel):
