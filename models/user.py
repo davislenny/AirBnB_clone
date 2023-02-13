@@ -10,6 +10,6 @@ import json
 class User(BaseModel):
     """ Class definition """
     email = ""
-    pasword = ""
-    firsr_name = ""
+    password = ""
+    first_name = ""
     last_name = ""
