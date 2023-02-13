@@ -24,9 +24,9 @@ class HBNBCommand(cmd.Cmd):
         """ Exits on quit """
         return True
 
-    def empyline(self):
+    def emptyline(self):
         """ An empty line + ENTER shouldn’t execute anything """
-        pass
+        return False
 
     def do_create(self, line):
         """ Creates a new instance of BaseModel """
