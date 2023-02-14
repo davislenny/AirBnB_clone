@@ -55,6 +55,15 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(base1_dict['created_at'], str)
         self.assertIsInstance(base1_dict['updated_at'], str)
 
+    def test_save(self):
+        """Test save method."""
+        old = self.base1.updated_at
+        self.base1.save()
+        self.assertLess(old, self.base1.updated_at)
+        with open("file.json", "r") as f:
+            self.assertIn("BaseModel.{}".format(self.base1.id), f.read())
+
+
 
 if __name__ == "__main__":
     unittest.main()
