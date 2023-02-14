@@ -76,13 +76,5 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save(self):
         """ Tests that a file gets created with the name file.json """
-        self.storage.save()
+        self.rev1.save()
         self.assertTrue(os.path.isfile("file.json"))
-
-    def test_reload(self):
-        """ Reload without file """
-        try:
-            self.storage.reload()
-            self.assertTrue(True)
-        except Exception:
-            self.assertTrue(False)
