@@ -82,19 +82,17 @@ class HBNBCommand(cmd.Cmd):
         """ Prints all string representation of all instances
         based or not on the class name.
         """
-        args = parse(line)
-        obj_list = []
-        if len(line) == 0:
-            for objs in storage.all().values():
-                obj_list.append(objs)
-            print(obj_list)
-        elif args[0] in HBNBCommand.classes:
-            for key, objs in storage.all().items():
-                if args[0] in key:
-                    obj_list.append(objs)
-            print(obj_list)
-        else:
+        argl = parse(line)
+        if len(argl) > 0 and argl[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
+        else:
+            objl = []
+            for obj in storage.all().values():
+                if len(argl) > 0 and argl[0] == obj.__class__.__name__:
+                    objl.append(obj.__str__())
+                elif len(argl) == 0:
+                    objl.append(obj.__str__())
+            print(objl)
 
     def do_update(self, line):
         """ Updates an instance based on the class name
