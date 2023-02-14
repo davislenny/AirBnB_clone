@@ -20,7 +20,7 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
-    def do_quite(self, line):
+    def do_quit(self, line):
         """ Exits on quit """
         return True
 
